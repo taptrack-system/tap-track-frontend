@@ -1,5 +1,23 @@
 # Tap Track Frontend
 
+## Ferramentas
+
+* Angular CLI: 20.3.4 (`ng version`)
+* Node: 22.20.0 (`node -v`)
+* Package Manager: npm 11.6.1 (`npm -v`)
+* OS: win32 x64
+
+### Package
+
+| Package                      | Version             |
+|:-----------------------------|:--------------------|
+| `@angular-devkit/architect`  | 0.2003.4 (cli-only) |
+| `@angular-devkit/core`       | 20.3.4 (cli-only)   |
+| `@angular-devkit/schematics` | 20.3.4 (cli-only)   |
+| `@schematics/angular`        | 20.3.4 (cli-only)   |
+
+---
+
 ## Estrutura de Pastas
 
 ```text
