@@ -257,11 +257,67 @@ const routes: Routes = [
 ];
 ```
 
-```bash
+### 7. Configurar environment para múltiplos ambientes
+
+```ts
+// src/environments/environment.ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api'
+};
+
+// src/environments/environment.prod.ts
+export const environment = {
+  production: true,
+  apiUrl: 'https://api.taptrack.com.br/api'
+};
 ```
 
-```bash
+### 8. Integração com Backend
+
+* Cada módulo consome os microsserviços correspondentes (`identity-access-domain`, `finance-domain`, etc.)
+* Use `HttpClient` do Angular com `interceptors` e `services` separados por domínio.
+
+Exemplo: `modules/identity/services/auth.service.ts`
+
+```ts
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  constructor(private http: HttpClient) {}
+  
+  login(credentials: any) {
+    return this.http.post(`${environment.apiUrl}/auth/login`, credentials);
+  }
+}
 ```
+
+### 9. Scripts úteis no `package.json`
+
+```json
+"scripts": {
+  "start": "ng serve --open",
+  "build": "ng build --prod",
+  "lint": "ng lint",
+  "test": "ng test",
+  "e2e": "ng e2e"
+}
+```
+
+### Com isso, teremos:
+
+* Estrutura modular refletindo backend
+* Lazy loading e organização por domínio
+* SCSS modularizado
+* Bibliotecas essenciais prontas
+* Configuração de ambientes e autenticação
+
+---
+
+## Sugestões
+
+Gerar o blueprint de arquivos e pastas completo do Angular CLI com módulos, rotas, interceptors, guards e components já criados, pronto para clonar e começar a implementar a UI do sistema.
+
+---
 
 
 
