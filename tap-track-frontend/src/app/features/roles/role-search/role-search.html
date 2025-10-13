@@ -1,0 +1,21 @@
+<div class="role-search">
+    <h2>Buscar Role</h2>
+  
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="form-group">
+        <label for="name">Nome do Role</label>
+        <input id="name" formControlName="name" />
+      </div>
+      <button type="submit">Buscar</button>
+    </form>
+  
+    <div *ngIf="roles.length > 0" class="resultados">
+      <h3>Resultados</h3>
+      <ul>
+        <li *ngFor="let role of roles">
+          {{ role.name }} — {{ role.description || 'Sem descrição' }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  

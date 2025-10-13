@@ -1,0 +1,57 @@
+<div class="user-create">
+  <h2>Cadastrar Usuário</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="username">Usuário</label>
+      <input id="username" formControlName="username" />
+      <div class="error"
+           *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">
+        Usuário é obrigatório (3 a 50 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fullName">Nome Completo</label>
+      <input id="fullName" formControlName="fullName" />
+      <div class="error"
+           *ngIf="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched">
+        Nome completo é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" formControlName="email" />
+      <div class="error"
+           *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        Informe um e-mail válido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input id="password" type="password" formControlName="password" />
+      <div class="error"
+           *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+        Senha é obrigatória (mínimo 8 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="roles">Perfis</label>
+      <select id="roles" formControlName="roles" multiple>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+      <div class="error"
+           *ngIf="userForm.get('roles')?.invalid && userForm.get('roles')?.touched">
+        Selecione ao menos um perfil.
+      </div>
+    </div>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

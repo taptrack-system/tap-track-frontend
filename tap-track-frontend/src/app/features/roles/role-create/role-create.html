@@ -1,0 +1,23 @@
+<div class="role-create">
+  <h2>Cadastrar Role</h2>
+
+  <form [formGroup]="roleForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input id="name" formControlName="name" />
+      <div class="error" *ngIf="roleForm.get('name')?.invalid && roleForm.get('name')?.touched">
+        Nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descrição</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <button type="submit">Salvar Role</button>
+  </form>
+
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>
