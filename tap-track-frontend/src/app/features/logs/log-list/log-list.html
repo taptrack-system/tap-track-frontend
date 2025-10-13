@@ -1,0 +1,31 @@
+<div class="log-list">
+    <h2>Audit Logs</h2>
+  
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Entidade</th>
+          <th>Entity ID</th>
+          <th>Ação</th>
+          <th>PerformedBy</th>
+          <th>Timestamp</th>
+          <th>Detalhes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of logs">
+          <td>{{ log.id }}</td>
+          <td>{{ log.entity }}</td>
+          <td>{{ log.entityId }}</td>
+          <td>{{ log.action }}</td>
+          <td>{{ log.performedBy }}</td>
+          <td>{{ log.timestamp }}</td>
+          <td>{{ log.details }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

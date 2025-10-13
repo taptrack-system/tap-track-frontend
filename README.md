@@ -336,16 +336,3 @@ export class AuthService {
 Gerar o blueprint de arquivos e pastas completo do Angular CLI com módulos, rotas, interceptors, guards e components já criados, pronto para clonar e começar a implementar a UI do sistema.
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-  
-

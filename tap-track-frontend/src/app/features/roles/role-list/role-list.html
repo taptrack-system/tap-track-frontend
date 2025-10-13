@@ -1,0 +1,32 @@
+<div class="role-list">
+  <h2>Lista de Roles</h2>
+
+  @if (loading) {
+    <div>Carregando roles...</div>
+  }
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (!loading && !error && roles.length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (role of roles; track role.name) {
+          <tr>
+            <td>{{ role.name | titlecase }}</td>
+            <td>{{ role.description || '—' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else if (!loading && !error && roles.length === 0) {
+    <div>Nenhuma role encontrada.</div>
+  }
+</div>

@@ -1,0 +1,33 @@
+<div class="layout">
+    <header class="layout-header">
+      <div class="logo">TapTrack</div>
+      <nav class="header-nav">
+        <a routerLink="/users/list">Usuários</a>
+        <a routerLink="/roles/list">Roles</a>
+        <a routerLink="/logs">Logs</a>
+      </nav>
+      <div class="header-actions">
+        <button routerLink="/login">Login</button>
+        <button routerLink="/users/new">Cadastrar</button>
+      </div>
+    </header>
+  
+    <div class="layout-body">
+      <aside class="layout-sidebar">
+        <nav class="sidebar-nav">
+          <a routerLink="/users/list">Listar Usuários</a>
+          <a routerLink="/roles/list">Listar Roles</a>
+          <a routerLink="/logs">Ver Logs</a>
+        </nav>
+      </aside>
+  
+      <main class="layout-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  
+    <footer class="layout-footer">
+      <span>© 2025 TapTrack. Todos os direitos reservados.</span>
+    </footer>
+  </div>
+  
